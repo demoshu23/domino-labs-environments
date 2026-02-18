@@ -1,0 +1,4 @@
+vulnerabilities:
+- id: CVE-2023-XXXX
+  reason: "Risk accepted - no exploit path"
+  expires: "2026-01-01"

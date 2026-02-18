@@ -1,0 +1,15 @@
+name: Build Secure Image
+
+on:
+  push:
+    paths:
+      - "docker/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t domino-ml-env:${{ github.sha }} ./docker
+      - run: docker scan domino-ml-env:${{ github.sha }}
+      - run: docker push domino-ml-env:${{ github.sha }}
